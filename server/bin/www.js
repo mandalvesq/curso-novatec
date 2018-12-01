@@ -6,7 +6,11 @@ const numCpus = require('os').cpus().length
 
 if (cluster.isMaster){
     for (let i = 0; i<numCpus; i++){
-        cluster.fork()
+        let worker = cluster.fork()
+        worker.on('exit', () => {
+            console.log('Worker ir Dead')
+            cluster.fork()
+        })
     }
 }else{
 app.listen(3000, () => {
