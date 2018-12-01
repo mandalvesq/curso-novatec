@@ -15,12 +15,8 @@ const MovieController = {
         let query = {}
         if (request.query.title)
             query = { title: new RegExp(request.query.title, 'i') }
-
-        Promise.all([
-            repository.listAsync(query),
-            repository.countAsync(query)
-
-        ])
+            
+            .service.list(query)
             .then (datas => {response.json({
                 items: datas[0],
                 total: datas[1]

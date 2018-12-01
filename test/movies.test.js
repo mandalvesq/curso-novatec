@@ -40,12 +40,7 @@ describe ('CRUD movies tests', () => {
             assert.equal(result.body.title, 'Filme teste')
         })
     })
-    it('DELETE', () => {
-        return request.delete(`/api/movies/${id}`)
-        .then(result => {
-            assert.equal(result.status, 204)
-        })
-    })
+
     it('PUT', () => {
         let releaseDate = { releaseDate: new Date() }
         return request.put(`/api/movies/${id}`)
@@ -64,6 +59,12 @@ describe ('CRUD movies tests', () => {
             assert.ok(result.body)
             assert.ok(result.body._id)
 
+        })
+    })
+    it('DELETE', () => {
+        return request.delete(`/api/movies/${id}`)
+        .then(result => {
+            assert.equal(result.status, 204)
         })
     })
 
