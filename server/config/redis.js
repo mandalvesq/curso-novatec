@@ -14,4 +14,4 @@ client.on('error', function(err){
 
 bluebird.promisifyAll(redis)
 
-module.exports = redis;
+module.exports = client
