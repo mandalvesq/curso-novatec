@@ -7,7 +7,7 @@ const AppControler = {
         next(err)
     },
     errorHandler(err, request, response, next){
-        console.log(err.stack)
+        if (err.status !== 404) console.log(err.stack)
         response.status(err.status || 500)
         response.json({err: err.message})
     }
