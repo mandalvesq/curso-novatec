@@ -1,16 +1,10 @@
 // server/repository/MovieRepository.js
 
+const db = require('../config/mongo')
+
 const MovieRepository = {
     list(query, callback){
-        let data = [
-            { title: 'O HOBBIT' },
-            { title: 'O Senhor dos Aneis' },
-            { title: 'Maquina Mortifera' },
-            { title: 'Sherlock Holmes' }
-        ]
-        if (query.name)
-            data = data.filter(i => query.name.test(i.title))
-        callback(null, data)
+        db.collection('movies').find(query,callback)
     },
     byId(){},
     create(){},

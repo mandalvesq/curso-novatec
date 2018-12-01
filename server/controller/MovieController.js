@@ -5,8 +5,8 @@ const repository = require('../repository/MovieRepository')
 const MovieController = {
     list(request, response, next){
         let query = {}
-        if (request.query.name)
-            query = { name: new RegExp(request.query.name, 'i') }
+        if (request.query.title)
+            query = { title: new RegExp(request.query.title, 'i') }
 
         repository.list(query, (err,data) => {
             if (err) return next(err)
