@@ -17,14 +17,19 @@ const MovieController = {
         let id = request.params.id
         repository.byId(id, (err, data) => {
             if (!data){
-                let err = new Error('Movie Not Found')
+                let err = new Error('Movie Not Found - 404')
                 err.status = 404
                 return next(err)
             }
             response.json(data)
         })
     },
-    create(request, response, next){},
+    create(request, response, next){
+        let body = request.body
+        repository.create(body, (err,data) => {
+            response.status(201).json(data)
+        })
+    },
     update(request, response, next){},
     delete(request, response, next){}
 
