@@ -30,8 +30,23 @@ const MovieController = {
             response.status(201).json(data)
         })
     },
-    update(request, response, next){},
-    delete(request, response, next){}
+    update(request, response, next){
+        let id = request.params.id
+        let body = request.body
+
+        delete body._id;
+        
+        repository.update(id, body, (err,data) => {
+            response.json(data)
+        })
+    },
+    delete(request, response, next){
+        let id = request.params.id
+
+        repository.delete(id, (err,data) => {
+            response.status(204).send('')
+        })
+    }
 
 }
 

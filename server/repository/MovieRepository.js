@@ -13,8 +13,16 @@ const MovieRepository = {
     create(body, callback){
         db.collection('movies').insert(body,callback)
     },
-    update(){},
-    delete(){}
+    update(id, body, callback){
+        let query = {_id: db.ObjectId(id)}
+
+        db.collection('movies').update(query, {$set: body}, callback)
+    },
+    delete(id,callback){
+        let query = {_id: db.ObjectId(id)}
+
+        db.collection('movies').remove(query,callback)
+    }
 }
 
 module.exports = MovieRepository

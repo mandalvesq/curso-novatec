@@ -14,8 +14,8 @@ function isValidId(request, response, next){
 router.get('/', controller.list)
 router.get('/:id', isValidId, controller.byId)
 router.post('/', controller.create)
-//router.get('/:id', controller.update)
-//router.get('/:id', controller.delete)
+router.put('/:id', isValidId, controller.update)
+router.delete('/:id', isValidId, controller.delete)
 
 
 module.exports = router;
