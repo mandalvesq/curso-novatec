@@ -5,6 +5,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const controller = require('./controller/AppController')
 
+app.set('view engine', 'ejs')
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())

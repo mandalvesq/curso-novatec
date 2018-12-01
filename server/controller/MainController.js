@@ -1,9 +1,17 @@
 // server/controller/MainController.js
+const service = require('../service/MovieService')
 
 const MainController = {
     
     home(request, response, next){
-        response.send('Curso Novatec')
+        service.list({})
+            .then(datas => {
+                response.render('home', {
+                    title: 'Novatec 2018',
+                    items: datas[0]
+                })
+            })
+            .catch(next)
     },
 
     contact(request, response, next){
