@@ -1,6 +1,7 @@
 // server/controller/MovieController.js
 const bluebird = require('bluebird')
 const repository = bluebird.promisifyAll(require('../repository/MovieRepository'))
+const service = require('../service/MovieService')
 
 function notFound(data) {
     if (!data){
@@ -15,9 +16,9 @@ const MovieController = {
         let query = {}
         if (request.query.title)
             query = { title: new RegExp(request.query.title, 'i') }
-            
-            .service.list(query)
-            .then (datas => {response.json({
+
+        service.list(query)
+        .then (datas => {response.json({
                 items: datas[0],
                 total: datas[1]
             })
