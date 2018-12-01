@@ -1,0 +1,28 @@
+{
+  "name": "curso-novatec",
+  "version": "1.0.0",
+  "description": "Curso de NodeJS ministrado pelo William Bruno na Novatec.",
+  "main": "www.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandalvesq/curso-novatec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandalvesq/curso-novatec/issues"
+  },
+  "homepage": "https://github.com/mandalvesq/curso-novatec#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
