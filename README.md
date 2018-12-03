@@ -1,2 +1,9 @@
-# curso-novatec
-Curso de NodeJS ministrado pelo William Bruno na Novatec.
+# NodeJS - Movies API 
+
+Simple API NodeJS for Movies 
+
+# How to run
+TBD
+
+# How to use
+TBD
